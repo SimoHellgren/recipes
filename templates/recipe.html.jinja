@@ -1,7 +1,7 @@
 <html>
 <meta charset="UTF-8">
 <title>
-    Reseptit kirja
+    Keito kirja
 </title>
 
 <head>
@@ -17,7 +17,7 @@
     <h2>Ainehet</h2>
     <ul>
         {% for ingredient in ingredients %}
-        <li>{{ ingredient }}</li>
+        <li onclick="toggleDone(this)">{{ ingredient }}</li>
         {% endfor %}
     </ul>
 
