@@ -8,5 +8,5 @@ for file in Path("./build").glob("*"):
         file,
         "assume-garlic",
         file.name,
-        ExtraArgs={"ContentType": "text/html"},
+        ExtraArgs={"ContentType": "text/html; charset=utf-8"},
     )

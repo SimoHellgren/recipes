@@ -21,7 +21,7 @@ if __name__ == "__main__":
     p = Path(".")
 
     # render individual pages
-    with open(p / "templates" / "recipe.html.jinja") as f:
+    with open(p / "templates" / "recipe.html.jinja", encoding="utf-8") as f:
         TEMPLATE = jinja2.Template(f.read())
 
     files = sorted(f.stem for f in p.glob(r"recipes/*.yml"))
@@ -33,7 +33,7 @@ if __name__ == "__main__":
             f.write(TEMPLATE.render(recipe))
 
     # render index
-    with open(p / "templates" / "index.html.jinja") as f:
+    with open(p / "templates" / "index.html.jinja", encoding="utf-8") as f:
         INDEX = jinja2.Template(f.read())
 
     with open(p / "build" / "index.html", "w", encoding="utf-8") as f:
