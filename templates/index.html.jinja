@@ -1,0 +1,17 @@
+<html>
+<meta charset="UTF-8">
+<title>
+    Reseptit kirja
+</title>
+
+<body>
+    <ul>
+        {% for recipe in recipes %}
+        <li>
+            <a href="/{{ recipe.href }}">{{ recipe.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

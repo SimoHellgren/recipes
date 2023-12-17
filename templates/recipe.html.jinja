@@ -1,0 +1,24 @@
+<html>
+<meta charset="UTF-8">
+<title>
+    Reseptit kirja
+</title>
+
+<body>
+    <h1>{{name}}</h1>
+
+    <h2>Ainehet</h2>
+    <ul>
+        {% for ingredient in ingredients %}
+        <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+
+    <ol>
+        {% for step in method %}
+        <li> {{step}}</li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>
