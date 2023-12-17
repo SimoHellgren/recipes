@@ -4,6 +4,11 @@
     Reseptit kirja
 </title>
 
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+
 <body>
     <h1>{{name}}</h1>
 
@@ -16,7 +21,7 @@
 
     <ol>
         {% for step in method %}
-        <li> {{step}}</li>
+        <li onclick="toggleDone(this)"> {{step}}</li>
         {% endfor %}
     </ol>
 </body>

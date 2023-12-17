@@ -1,6 +1,7 @@
 import yaml
 import jinja2
 from pathlib import Path
+import shutil
 
 
 def parse_recipe(d: dict):
@@ -41,3 +42,7 @@ if __name__ == "__main__":
             for file, r in zip(files, recipes)
         ]
         f.write(INDEX.render({"recipes": data}))
+
+    # copy styles and js
+    shutil.copy("./styles.css", "build")
+    shutil.copy("./scripts.js", "build")
