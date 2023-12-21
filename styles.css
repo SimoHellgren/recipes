@@ -6,3 +6,7 @@
 .hidden {
     display: none;
 }
+
+a {
+    color: #000000;
+}
