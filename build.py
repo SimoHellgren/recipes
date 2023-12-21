@@ -2,6 +2,9 @@ import yaml
 import jinja2
 from pathlib import Path
 import shutil
+from itertools import chain
+
+flatten = chain.from_iterable
 
 
 def parse_recipe(d: dict):
@@ -37,11 +40,9 @@ if __name__ == "__main__":
         INDEX = jinja2.Template(f.read())
 
     with open(p / "build" / "index.html", "w", encoding="utf-8") as f:
-        data = [
-            {"name": r["name"], "href": file + ".html"}
-            for file, r in zip(files, recipes)
-        ]
-        f.write(INDEX.render({"recipes": data}))
+        data = [{**r, "href": file + ".html"} for file, r in zip(files, recipes)]
+        all_tags = sorted(set(flatten(r["tags"] for r in recipes)))
+        f.write(INDEX.render({"recipes": data, "all_tags": all_tags}))
 
     # copy styles and js
     shutil.copy("./styles.css", "build")

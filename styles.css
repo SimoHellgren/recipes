@@ -2,3 +2,7 @@
     color: #aaaaaa;
     text-decoration: line-through;
 }
+
+.hidden {
+    display: none;
+}

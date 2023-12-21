@@ -1,13 +1,60 @@
 <html>
 <meta charset="UTF-8">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <script>
+
+        function showAllRecipes() {
+            document.querySelectorAll("li").forEach(li => {
+                li.classList.remove("hidden")
+            })
+
+            document.querySelectorAll("input").forEach(e => e.checked = false)
+        }
+
+        function filterRecipes() {
+            let active_tags = [...document.querySelectorAll("input:checked")].map(e => e.getAttribute("data-tag"))
+
+            if (!active_tags.length) {
+                showAllRecipes()
+                return
+            }
+
+            document.querySelectorAll("li").forEach(li => {
+                let tags = li.getAttribute("data-tags").split(",")
+
+                if (active_tags.some(e => tags.includes(e))) {
+                    li.classList.remove("hidden")
+                } else {
+                    li.classList.add("hidden")
+                }
+            })
+        }
+
+    </script>
+</head>
+
 <title>
     Keito kirja
 </title>
 
 <body>
+    {% for tag in all_tags %}
+    <label class="switch">
+        {{ tag | capitalize }}
+        <input type="checkbox" onclick="filterRecipes()" data-tag="{{ tag }}">
+        <span class="slider round"></span>
+    </label>
+
+    {% endfor %}
+
+    <button type="button" onclick="showAllRecipes()">Kaikki</button>
+
     <ul>
         {% for recipe in recipes %}
-        <li>
+        <li data-tags="{{ recipe.tags|join(',') }}">
             <a href="/{{ recipe.href }}">{{ recipe.name }}</a>
         </li>
         {% endfor %}
