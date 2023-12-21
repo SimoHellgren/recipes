@@ -33,6 +33,23 @@
             })
         }
 
+        function searchRecipes(input) {
+            let search = input.value.toLowerCase()
+
+            console.log(search)
+
+            document.querySelectorAll("li").forEach(li => {
+                let name = li.querySelector("a").innerText.toLowerCase()
+
+                if (name.includes(search)) {
+                    li.classList.remove("hidden")
+                } else {
+                    li.classList.add("hidden")
+                }
+
+            })
+        }
+
     </script>
 </head>
 
@@ -51,6 +68,8 @@
     {% endfor %}
 
     <button type="button" onclick="showAllRecipes()">Kaikki</button>
+
+    <input type="text" placeholder="haku" oninput="searchRecipes(this)">
 
     <ul>
         {% for recipe in recipes %}
