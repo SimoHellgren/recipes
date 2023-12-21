@@ -7,10 +7,32 @@ from itertools import chain
 flatten = chain.from_iterable
 
 
-def parse_recipe(d: dict):
-    ingredients = [" ".join(i.popitem()) for i in d["ingredients"]]
+def has_subsections(data):
+    """If there is only one level of ingredients, the type
+    of data is `list[dict[str, str]]`, while if there are
+    subsections, the type is `list[dict[str, list[str]]]`.
 
-    return {**d, "ingredients": ingredients}
+    This function checks the first value of the top level list
+    to figure out whether there are subsections. Only one level
+    of subsections is supported.
+    """
+    val = next(iter(data[0].values()))
+
+    return isinstance(val, list)
+
+
+def make_groups(data):
+    if not has_subsections(data):
+        return [(None, data)]
+
+    return [d.popitem() for d in data]
+
+
+def parse_recipe(d: dict):
+    grouped = make_groups(d["ingredients"])
+    parsed = [(g, [" ".join(i.popitem()) for i in l]) for g, l in grouped]
+
+    return {**d, "ingredients": parsed}
 
 
 def load_recipe_from_file(path):

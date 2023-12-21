@@ -3,27 +3,32 @@ servings: 6
 tags: [japani, riisi, aasia]
 source: https://norecipes.com/japanese-curry-recipe-from-scratch/
 ingredients:
-- Valkosipuli: 20g
-- Inkivääri: 30g
-- Sipuli: 600g
-- Porkkanaraaste: 70g
-- Dashi: 1.1l
-- Suola: 1tl
-- Ruokasooda: 0.125tl
-- Curryjauhe: 3rkl
-- Cayennejauhe: 0.5tl
-- Kypsä banaani: 1kpl
-- Laakerinlehti: 1kpl
-- Tähtianis: 1kpl
-- Soija: 2rkl
-- Chuno: 1rkl
-- Tomaattipyre: 1rkl
-- Kaakaojauhe: 2tl
-- Peruna: 400g
-- Porkkana: 300g
+- Dashi:
+  - Vesi: 1l
+  - Kombu: 15g
+  - Katsuobushi: 30g
+- Curry:
+  - Valkosipuli: 20g
+  - Inkivääri: 30g
+  - Sipuli: 600g
+  - Porkkanaraaste: 70g
+  - Suola: 1tl
+  - Ruokasooda: 0.125tl
+  - Curryjauhe: 3rkl
+  - Cayennejauhe: 0.5tl
+  - Kypsä banaani: 1kpl
+  - Laakerinlehti: 1kpl
+  - Tähtianis: 1kpl
+  - Soija: 2rkl
+  - Chuno: 1rkl
+  - Tomaattipyre: 1rkl
+  - Kaakaojauhe: 2tl
+  - Peruna: 400g
+  - Porkkana: 300g
 method:
- - (Tee dashin esityö 1vrk ennen)
- - (viimeistele 出汁 med 鰹節)
+ - Lillitä kombu-merilevää vedessä yön yli jääkaapissa
+ - Lämmitä dashi juuri ja juuri kiehuvaksi. Ota pois lämmöltä ja lisää katsuobushi. Uuta 4 minuuttia.
+ - Siivilöi dashi talteen
  - Sekoita 0.6dl vettä, suola ja ruokasooda
  - Raasta inkivääri ja valkosipuli
  - Pilko sipulit

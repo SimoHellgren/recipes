@@ -3,20 +3,23 @@ servings: 2
 tags: [taco, korea, aasia, vegaani]
 source: https://www.soppa365.fi/reseptit/kasvis-vegaaninen/korealaiset-tacot-nyhtotofulla
 ingredients:
-  - Maustamaton tofu: 250g
-  - Raastettu inkivääri: 2rkl
-  - Valkosipulinkynsi: 2kpl
-  - Ruokosokeri: 1tl
-  - Seesamiöljy: 2rkl
-  - Soijakastike: 2rkl
-  - Majoneesi: 1dl
-  - Gochujang: 1½rkl
-  - Kevätsipuli: 2kpl
-  - Punakaali: 200g
-  - Chili: 1kpl
-  - Sinimailasen ituja: 1pkt
-  - Seesaminsiemieniä: 1rkl
-  - Minitortilla: 8kpl
+  - Nyhtötofu:
+    - Maustamaton tofu: 250g
+    - Raastettu inkivääri: 2rkl
+    - Valkosipulinkynsi: 2kpl
+    - Ruokosokeri: 1tl
+    - Seesamiöljy: 2rkl
+    - Soijakastike: 2rkl
+  - Gochujang-majoneesi:
+    - Majoneesi: 1dl
+    - Gochujang: 1½rkl
+  - Lisäksi:
+    - Kevätsipuli: 2kpl
+    - Punakaali: 200g
+    - Chili: 1kpl
+    - Sinimailasen ituja: 1pkt
+    - Seesaminsiemieniä: 1rkl
+    - Minitortilla: 8kpl
 method:
   - Kuumenna uuni 225 asteeseen
   - Purista tofusta enimmät nesteet

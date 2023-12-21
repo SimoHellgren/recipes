@@ -17,11 +17,19 @@
     <p>Alkuperä: <a href="{{source}}">{{source}}</a></p>
 
     <h2>Ainehet</h2>
+    {% for group, values in ingredients %}
+    {% if group %}<b>{{ group }}</b>{% endif %}
     <ul>
-        {% for ingredient in ingredients %}
+        {% for ingredient in values %}
         <li onclick="toggleDone(this)">{{ ingredient }}</li>
         {% endfor %}
     </ul>
+    {% endfor %}
+    {# <ul>
+        {% for ingredient in ingredients %}
+        <li onclick="toggleDone(this)">{{ ingredient }}</li>
+        {% endfor %}
+    </ul> #}
 
     <h2>Tee näin</h2>
     <ol>
