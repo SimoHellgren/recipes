@@ -7,9 +7,12 @@
     display: none;
 }
 
-li>a {
-    color: #000000;
+.recipelist {
     font-size: 1.5rem;
+}
+
+.recipelistitem>* {
+    color: #000000;
 }
 
 li {

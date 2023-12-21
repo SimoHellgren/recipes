@@ -76,9 +76,9 @@
         <input type="text" placeholder="Haku" oninput="searchRecipes(this)">
     </div>
 
-    <ul>
+    <ul class="recipelist">
         {% for recipe in recipes %}
-        <li data-tags="{{ recipe.tags|join(',') }}">
+        <li class="recipelistitem" data-tags="{{ recipe.tags|join(',') }}">
             <a href="/{{ recipe.href }}">{{ recipe.name }}</a>
         </li>
         {% endfor %}
