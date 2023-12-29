@@ -14,11 +14,13 @@
 <body>
     <h1>{{name}}</h1>
 
-    <p>Alkuperä:
+    <p><b>Alkuperä</b>:
         {% if source and source.startswith("http") %}<a href="{{source}}">{% endif %}
             {{source}}
             {% if source and source.startswith("http") %}</a>{% endif %}
     </p>
+
+    <p><b>Riitto:</b> {{ servings }}</p>
 
     <h2>Ainehet</h2>
     {% for group, values in ingredients %}
@@ -29,11 +31,6 @@
         {% endfor %}
     </ul>
     {% endfor %}
-    {# <ul>
-        {% for ingredient in ingredients %}
-        <li onclick="toggleDone(this)">{{ ingredient }}</li>
-        {% endfor %}
-    </ul> #}
 
     <h2>Tee näin</h2>
     <ol>
@@ -41,6 +38,15 @@
         <li onclick="toggleDone(this)"> {{step}}</li>
         {% endfor %}
     </ol>
+
+    {% if notes %}
+    <br>
+    <h3>Liirum laarum</h3>
+    {% for note in notes %}
+    <p>{{ note }}</p>
+    {% endfor %}
+
+    {% endif %}
 </body>
 
 </html>
