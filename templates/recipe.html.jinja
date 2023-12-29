@@ -14,7 +14,11 @@
 <body>
     <h1>{{name}}</h1>
 
-    <p>Alkuperä: <a href="{{source}}">{{source}}</a></p>
+    <p>Alkuperä:
+        {% if source and source.startswith("http") %}<a href="{{source}}">{% endif %}
+            {{source}}
+            {% if source and source.startswith("http") %}</a>{% endif %}
+    </p>
 
     <h2>Ainehet</h2>
     {% for group, values in ingredients %}
