@@ -15,9 +15,12 @@
     <h1>{{name}}</h1>
 
     <p><b>Alkuperä</b>:
-        {% if source and source.startswith("http") %}<a href="{{source}}">{% endif %}
-            {{source}}
-            {% if source and source.startswith("http") %}</a>{% endif %}
+        {% if source and source.startswith("http") %}
+        <a href="{{source}}">{{source}}</a>
+        {% else %}
+        {{source}}
+        {% endif %}
+
     </p>
 
     <p><b>Riitto:</b> {{ servings }}</p>
