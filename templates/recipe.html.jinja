@@ -15,41 +15,43 @@
     <h1>{{name}}</h1>
 
     <p><b>Alkuperä</b>:
-        {% if source and source.startswith("http") %}
+        {%- if source and source.startswith("http") %}
         <a href="{{source}}">{{source}}</a>
-        {% else %}
+        {%- else %}
         {{source}}
-        {% endif %}
-
+        {%- endif %}
     </p>
 
     <p><b>Riitto:</b> {{ servings }}</p>
 
-    <h2>Ainehet</h2>
-    {% for group, values in ingredients %}
-    {% if group %}<b>{{ group }}</b>{% endif %}
-    <ul>
-        {% for ingredient in values %}
-        <li onclick="toggleDone(this)">{{ ingredient }}</li>
-        {% endfor %}
-    </ul>
-    {% endfor %}
-
-    <h2>Tee näin</h2>
-    <ol>
-        {% for step in method %}
-        <li onclick="toggleDone(this)"> {{step}}</li>
-        {% endfor %}
-    </ol>
-
-    {% if notes %}
+    <main>
+        <section>
+            <h2>Ainehet</h2>
+            {%- for group, values in ingredients %}
+            {%- if group %}<b>{{ group }}</b>{% endif %}
+            <ul>
+                {%- for ingredient in values %}
+                <li onclick="toggleDone(this)">{{ ingredient }}</li>
+                {%- endfor %}
+            </ul>
+            {%- endfor %}
+        </section>
+        <section>
+            <h2>Tee näin</h2>
+            <ol>
+                {%- for step in method %}
+                <li onclick="toggleDone(this)"> {{step}}</li>
+                {%- endfor %}
+            </ol>
+        </section>
+    </main>
+    {%- if notes %}
     <br>
     <h3>Liirum laarum</h3>
-    {% for note in notes %}
+    {%- for note in notes %}
     <p>{{ note }}</p>
-    {% endfor %}
-
-    {% endif %}
+    {%- endfor %}
+    {%- endif %}
 </body>
 
 </html>
