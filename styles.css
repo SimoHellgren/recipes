@@ -3,7 +3,8 @@
     text-decoration: line-through;
 }
 
-.hidden {
+.hideByTag,
+.hideByName {
     display: none;
 }
 
