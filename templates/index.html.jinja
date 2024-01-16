@@ -52,6 +52,13 @@
             })
         }
 
+        document.addEventListener("keydown", e => {
+            if (e.ctrlKey && e.key == "f") {
+                e.preventDefault()
+                document.querySelector("#search").focus()
+            }
+        })
+
     </script>
 </head>
 
@@ -72,7 +79,7 @@
     </div>
 
     <div>
-        <input type="text" placeholder="Haku" oninput="searchRecipes(this)">
+        <input id="search" type="text" placeholder="Haku" oninput="searchRecipes(this)">
     </div>
 
     <ul class="recipelist">
