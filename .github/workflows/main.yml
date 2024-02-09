@@ -13,4 +13,4 @@ jobs:
       - name: Install dependencies
         run: pip install PyYaml Jinja2
       - name: build
-        run: python build.py
+        run: mkdir build & python build.py
