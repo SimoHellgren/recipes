@@ -7,7 +7,9 @@ ingredients:
     - Kombu: 1pala
     - Kuivattu siitake: 1kpl
     - Vesi: 0.25l
-  - Munat: 4kpl
+  - Soijamunat: 
+    - Kananmuna: 4kpl
+    - Soija: 2rkl
   - Ramen:
     - Paahdettu sesaminsiemen: 2rkl
     - Inkivääri: 2.5cm
