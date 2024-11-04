@@ -6,19 +6,18 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.11
+
       - name: Install dependencies
         run: pip install PyYaml Jinja2
+
       - name: build
         run: mkdir build & python build.py
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: build
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
