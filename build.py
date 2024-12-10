@@ -43,26 +43,33 @@ def load_recipe_from_file(path):
 
 
 if __name__ == "__main__":
-    p = Path(".")
+    TEMPLATE_FOLDER = Path("templates")
+    RECIPES_FOLDER = Path("recipes")
+    BUILD_FOLDER = Path("build")
 
-    # render individual pages
-    with open(p / "templates" / "recipe.html.jinja", encoding="utf-8") as f:
+    # read templates
+    with open(TEMPLATE_FOLDER / "recipe.html.jinja", encoding="utf-8") as f:
         TEMPLATE = jinja2.Template(f.read())
 
-    files = sorted(f.stem for f in p.glob(r"recipes/*.yml"))
+    with open(TEMPLATE_FOLDER / "index.html.jinja", encoding="utf-8") as f:
+        INDEX = jinja2.Template(f.read())
 
-    recipes = [load_recipe_from_file(p / "recipes" / f"{file}.yml") for file in files]
+    # render individual pages
+    files = sorted(RECIPES_FOLDER.glob("*.yml"))
+    recipes = [load_recipe_from_file(file) for file in files]
 
     for file, recipe in zip(files, recipes):
-        with open(p / "build" / f"{file}.html", "w", encoding="utf-8") as f:
+        with open(
+            BUILD_FOLDER / file.with_suffix(".html").name, "w", encoding="utf-8"
+        ) as f:
             f.write(TEMPLATE.render(recipe))
 
     # render index
-    with open(p / "templates" / "index.html.jinja", encoding="utf-8") as f:
-        INDEX = jinja2.Template(f.read())
-
-    with open(p / "build" / "index.html", "w", encoding="utf-8") as f:
-        data = [{**r, "href": file + ".html"} for file, r in zip(files, recipes)]
+    with open(BUILD_FOLDER / "index.html", "w", encoding="utf-8") as f:
+        data = [
+            {**r, "href": file.with_suffix(".html").name}
+            for file, r in zip(files, recipes)
+        ]
         all_tags = sorted(set(flatten(r["tags"] for r in recipes)))
         f.write(INDEX.render({"recipes": data, "all_tags": all_tags}))
 
