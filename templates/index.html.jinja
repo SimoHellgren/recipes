@@ -85,7 +85,7 @@
     <ul class="recipelist">
         {%- for recipe in recipes %}
         <li class="recipelistitem" data-tags="{{ recipe.tags|join(',') }}">
-            <a href="/{{ recipe.href }}">{{ recipe.name }}</a>
+            <a href="{{ recipe.href }}">{{ recipe.name }}</a>
         </li>
         {%- endfor %}
     </ul>
