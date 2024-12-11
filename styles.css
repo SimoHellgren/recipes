@@ -27,3 +27,13 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+.floaty {
+    position: fixed;
+    right: 10%;
+}

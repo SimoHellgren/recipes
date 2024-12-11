@@ -12,7 +12,10 @@
 </head>
 
 <body>
-    <h1>{{name}}</h1>
+    <header>
+        <h1>{{name}}</h1>
+        <a class="floaty" href="index.html">Etusivulle</a>
+    </header>
 
     <p><b>Alkuperä</b>:
         {%- if source and source.startswith("http") %}
