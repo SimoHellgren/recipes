@@ -31,9 +31,9 @@ main {
 header {
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
-.floaty {
-    position: fixed;
-    right: 10%;
+header>a {
+    text-decoration: None;
 }
