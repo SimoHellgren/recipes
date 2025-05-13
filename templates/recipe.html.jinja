@@ -17,14 +17,6 @@
         <a href="index.html">🏠↩️</a>
     </header>
 
-    {%- if notes %}
-    <br>
-    <h3>Liirum laarum</h3>
-    {%- for note in notes %}
-    <p>{{ note }}</p>
-    {%- endfor %}
-    {%- endif %}
-
     <p><b>Alkuperä</b>:
         {%- if source and source.startswith("http") %}
         <a href="{{source}}">{{source}}</a>
@@ -34,6 +26,16 @@
     </p>
 
     <p><b>Riitto:</b> {{ servings }}</p>
+
+    <section>
+        {%- if notes %}
+        <br>
+        <h3>Liirum laarum</h3>
+        {%- for note in notes %}
+        <p>{{ note }}</p>
+        {%- endfor %}
+        {%- endif %}
+    </section>
 
     <main>
         <section>
