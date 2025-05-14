@@ -27,15 +27,14 @@
 
     <p><b>Riitto:</b> {{ servings }}</p>
 
-    <section>
-        {%- if notes %}
-        <br>
+    {%- if notes %}
+    <section class="liirumlaarum">
         <h3>Liirum laarum</h3>
         {%- for note in notes %}
         <p>{{ note }}</p>
         {%- endfor %}
-        {%- endif %}
     </section>
+    {%- endif %}
 
     <main>
         <section>
