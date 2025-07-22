@@ -55,3 +55,24 @@ header {
 header>a {
     text-decoration: None;
 }
+
+/* The label and input selectors here are meant just for index.html - 
+   this may lead to hard-to-spot bugs on other pages in the future, lol.
+   Might be better to just use a class, but oh well.
+*/
+label {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.1em;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+    vertical-align: middle;
+}
