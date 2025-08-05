@@ -1,8 +1,9 @@
-import yaml
-import jinja2
-from pathlib import Path
 import shutil
 from itertools import chain
+from pathlib import Path
+
+import jinja2
+import yaml
 
 flatten = chain.from_iterable
 
@@ -31,6 +32,26 @@ def make_groups(data):
 def parse_recipe(d: dict):
     grouped = make_groups(d["ingredients"])
     parsed = [(g, [" ".join(i.popitem()) for i in l]) for g, l in grouped]
+
+    return {**d, "ingredients": parsed}
+
+
+def parse_recipe2(d: dict):
+    grouped = make_groups(d["ingredients"])
+
+    parsed = []
+    for section_num, (group, ingredients) in enumerate(grouped, 1):
+        for ing_num, ingredient in enumerate(ingredients, 1):
+            name, qty = ingredient.popitem()
+            parsed.append(
+                {
+                    "section_position": section_num,
+                    "section": group,
+                    "ingredient_index": ing_num,
+                    "ingredient": name,
+                    "quantity": qty,
+                }
+            )
 
     return {**d, "ingredients": parsed}
 
