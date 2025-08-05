@@ -47,7 +47,7 @@ def parse_recipe2(d: dict):
                 {
                     "section_position": section_num,
                     "section": group,
-                    "ingredient_index": ing_num,
+                    "ingredient_position": ing_num,
                     "ingredient": name,
                     "quantity": qty,
                 }
