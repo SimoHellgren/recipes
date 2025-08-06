@@ -39,21 +39,25 @@ def parse_recipe(d: dict):
 def parse_recipe2(d: dict):
     grouped = make_groups(d["ingredients"])
 
-    parsed = []
+    sections = []
     for section_num, (group, ingredients) in enumerate(grouped, 1):
+        parsed_ingredients = []
         for ing_num, ingredient in enumerate(ingredients, 1):
             name, qty = ingredient.popitem()
-            parsed.append(
-                {
-                    "section_position": section_num,
-                    "section": group,
-                    "ingredient_position": ing_num,
-                    "ingredient": name,
-                    "quantity": qty,
-                }
+            parsed_ingredients.append(
+                {"position": ing_num, "name": name, "quantity": qty}
             )
 
-    return {**d, "ingredients": parsed}
+        sections.append(
+            {
+                "position": section_num,
+                "name": group,
+                "ingredients": parsed_ingredients,
+            }
+        )
+
+    del d["ingredients"]
+    return {**d, "sections": sections}
 
 
 def load_recipe_from_file(path):
