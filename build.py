@@ -44,8 +44,10 @@ def parse_recipe2(d: dict):
         parsed_ingredients = []
         for ing_num, ingredient in enumerate(ingredients, 1):
             name, qty = ingredient.popitem()
+            quantity, unit = qty.split(" ", 1)
+
             parsed_ingredients.append(
-                {"position": ing_num, "name": name, "quantity": qty}
+                {"position": ing_num, "name": name, "quantity": quantity, "unit": unit}
             )
 
         sections.append(
