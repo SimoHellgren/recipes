@@ -100,6 +100,7 @@ if __name__ == "__main__":
         all_tags = sorted(set(flatten(r["tags"] for r in recipes)))
         f.write(INDEX.render({"recipes": data, "all_tags": all_tags}))
 
-    # copy styles and js
+    # copy favicon, styles and js
     shutil.copy("./styles.css", "build")
     shutil.copy("./scripts.js", "build")
+    shutil.copy("./favicon.ico", "build")
