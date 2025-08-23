@@ -59,7 +59,14 @@ def parse_recipe2(d: dict):
         )
 
     del d["ingredients"]
-    return {**d, "sections": sections}
+
+    yield_quantity, _, yield_unit = str(d["servings"]).partition(" ")
+
+    return {
+        **d,
+        "sections": sections,
+        "servings": {"quantity": float(yield_quantity), "unit": yield_unit},
+    }
 
 
 def load_recipe_from_file(path):
