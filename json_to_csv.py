@@ -10,8 +10,8 @@ result = [
         "name": r["name"],
         "tags": json.dumps(r["tags"]),
         "source": r["source"],
-        "method": "\\n".join(r["method"]),
-        "notes": "\\n".join(r.get("notes", [])),
+        "method": "\n".join(r["method"]),
+        "notes": "\n".join(r.get("notes", [])),
         "yield_quantity": r["servings"]["quantity"],
         "yield_unit": r["servings"]["unit"],
     }
