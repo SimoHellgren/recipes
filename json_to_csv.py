@@ -8,7 +8,7 @@ with open("recipes.json") as f:
 result = [
     {
         "name": r["name"],
-        "tags": r["tags"],
+        "tags": json.dumps(r["tags"]),
         "source": r["source"],
         "method": "\\n".join(r["method"]),
         "notes": "\\n".join(r.get("notes", [])),
