@@ -18,6 +18,8 @@ recipes = [
         "notes": "\n".join(r.get("notes", [])),
         "yield_quantity": r["servings"]["quantity"],
         "yield_unit": r["servings"]["unit"],
+        "created_at": r["created_at"],
+        "updated_at": r["updated_at"],
     }
     for i, r in enumerate(sorted(data, key=lambda x: x["name"]), 1)
 ]
